@@ -10,6 +10,14 @@ pool:
   name: MyHostedVM
 
 steps:
+- task: JavaToolInstaller@0
+  displayName: Install Java
+  inputs:
+   jdkArchitectureOption: x64
+   jdkSourceOption: LocalDirectory
+   jdkDestinationDirectory: /builds/binaries/externals
+   cleanDestinationDirectory: false
+   versionSpec: "11"
 - task: Maven@3
   displayName: Maven Build
   inputs:
